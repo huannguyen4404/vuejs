@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VueJS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+</head>
+<body>
+  <header><h1>Welcome</h1></header>
+  <div class="list-blog">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, nam nihil porro, quaerat provident distinctio odit consectetur facere iste numquam aut? Incidunt, beatae expedita atque quibusdam nobis odit quis aliquam?</p>
+  </div>
+  <div id="app">
+    <p>{{ title }} <a v-bind:href="url">Vuejs</a></p>
+    <h3>{{ say('Henry') }}</h3>
+    <p>Price <span>{{ formatPrice() }}</span></p>
+  </div>
+  <footer><h2>Footer</h2></footer>
+</body>
+<script src="main.js"></script>
+</html>

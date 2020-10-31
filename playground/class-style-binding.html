@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Two way bindings, and Class and Style</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h3>{{ name && `Hello ${name}` }}</h3>
+    <input v-model="name" type="text" placeholder="Enter your name">
+    <button v-on:click="toggleStatus()">{{ isActive ? 'Disable' : 'Enable' }}</button>
+    <div class="box" v-bind:class="objectCls" v-bind:style="objectStyle"></div>
+  </div>
+</body>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      name: '',
+      isActive: true,
+      isPrimary: true
+    },
+    methods: {
+      toggleStatus() {
+        this.isActive = !this.isActive
+      }
+    },
+    computed: {
+      objectCls() {
+        return {
+          active: this.isActive,
+          primary: this.isPrimary
+        }
+      },
+      objectStyle() {
+        return {
+          width: '100px',
+          height: '100px',
+          backgroundColor: 'red'
+        }
+      }
+    }
+  })
+</script>
+</html>

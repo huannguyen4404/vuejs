@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Computed VueJS</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <p>{{ message }}</p>
+    <p>Num + A = {{ addA }}</p>
+    <p>Num + B = {{ addB }}</p>
+    <button v-on:click="a++">A++</button>
+    <button v-on:click="b++">B++</button>
+  </div>
+</body>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello',
+      a: 0,
+      b: 0,
+      num: 20
+    },
+    methods: {
+      // addA() {
+      //   console.log('AddA run');
+      //   return this.num + this.a
+      // },
+      // addB() {
+      //   console.log('AddB run');
+      //   return this.num + this.b
+      // }
+    },
+    computed: {
+      addA() {
+        console.log('AddA run');
+        return this.num + this.a
+      },
+      addB() {
+        console.log('AddB run');
+        return this.num + this.b
+      }
+    }
+  })
+</script>
+</html>

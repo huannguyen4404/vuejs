@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event VueJS</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>Count: {{ counter }}</h1>
+    <button v-on:click="handleClick">Click</button>
+    <button v-on:click="counter += 2">Add 2</button>
+    <button v-on:click="handleAddNum(5)">Add 5</button>
+    <button v-on:click="handle2Add(8, $event)">Add 8</button>
+  </div>
+
+  <form v-on:submit.prevent="handleSubmit">
+    <label>Name</label>
+    <input type="text" name="name"> <br>
+    <label>Email</label>
+    <input type="email" name="email"><br>
+
+    <input type="submit" value="submit">
+  </form>
+  
+</body>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      counter: 0
+    },
+    methods: {
+      handleClick(e) {
+        this.counter += 1
+      },
+      handleAddNum(number) {
+        this.counter += number
+      },
+      handle2Add(num, e) {
+        console.log(e);
+        this.counter += num
+      },
+      handleSubmit(e) {
+        
+      }
+    }
+  })
+</script>
+</html>
